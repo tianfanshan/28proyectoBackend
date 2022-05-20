@@ -1,4 +1,3 @@
-
 const { Category } = require("../models/index");
 
 const CategoryController = {
@@ -10,11 +9,3 @@ const CategoryController = {
 };
 
 module.exports = CategoryController;
-
-//// comentariossss
-//otro linea
-//3 linea
-//4
-
-//5
-//6
