@@ -1,14 +1,11 @@
-const category = require("../models/category");
-const { Category } = require("../models/category");
+
+const { Category } = require("../models/index");
 
 const CategoryController = {
-  Category(req, res) {
-    category
-      .create({ ...req.body })
-      .then((category) =>
-        res.status(201).send({ message: "categoria creado", category })
-      )
-      .catch(console.error);
+  create(req, res) {
+    Category.create({ ...req.body })
+        .then(category =>res.status(201).send({ message: "categoria creado", category }))
+        .catch(console.error);
   },
 };
 
