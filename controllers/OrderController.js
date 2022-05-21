@@ -4,8 +4,7 @@ const OrderController = {
   create(req, res) {
     Order.create({ ...req.body })
       .then(order =>
-        res.status(201).send({ message: "categoria creado", order })
-      )
+        res.status(201).send({ message: "categoria creado", order }))
       .catch(console.error);
   },
 };
