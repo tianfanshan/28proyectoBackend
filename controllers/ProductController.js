@@ -10,9 +10,7 @@ const ProductController = {
   },
   // Endpoint que traiga un producto por su id
   getProductById(req, res) {
-    Product.findOne({
-      where: { id: req.params.id },
-    })
+    Product.findByPk(req.params.id, {})
       .then((products) => res.send(products))
       .catch((err) => {
         console.log(err);
@@ -22,5 +20,7 @@ const ProductController = {
       });
   },
 };
+
+
 
 module.exports = ProductController;
