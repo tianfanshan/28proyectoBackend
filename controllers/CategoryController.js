@@ -11,10 +11,8 @@ const CategoryController = {
   //Crea un endpoint que devuelva una categoría por id
 
   getById(req, res) {
-    Category.findOne({
-      where:
-        //include: [Product],
-        { id: req.params.id },
+    Category.findByPk(req.params.id, {
+        
     })
       .then((categories) => res.send(categories))
       .catch((err) => {
@@ -24,11 +22,12 @@ const CategoryController = {
         });
       });
   },
-  // Filtro para buscar categoría por nombre  
+
+
+  // Filtro para buscar categoría por nombre
   getByName(req, res) {
     Category.findOne({
-      where:
-        { name: req.params.name },
+      where: { name: req.params.name },
     })
       .then((categories) => res.send(categories))
       .catch((err) => {
