@@ -1,4 +1,6 @@
-const { Product } = require('../models/index')
+const req = require('express/lib/request');
+const { Product, Sequelize } = require('../models/index');
+const { Op } = Sequelize;
 
 const ProductController = {
   create(req, res) {
@@ -19,6 +21,45 @@ const ProductController = {
         });
       });
   },
+  //Endpoint que traigo un producto por su nombre
+  getOneByName(req,res){
+    Product.findOne({
+      where:{
+        name:req.params.name
+      }
+    })
+    .then(product=>res.send(product))
+  },
+  //Endpoint que elimina un producto por su id
+  delete(req,res){
+    Product.destroy({
+      where:{
+        id:req.params.id
+      }
+    })
+    .then(()=>res.send({message:"the product is successfully deleted"}))
+  },
+  //Endpoint que traigo un producto que contenga las letras que introduces
+  getOneByString(req,res){
+    Product.findOne({
+      where:{
+        name:{
+          [Op.like]: `%${req.params.name}%`
+        }
+      }
+    })
+    .then(product=>res.send({message:"You just found the game you want",product}))
+  },
+  //Endpotin que actualiza un producto por su id
+  update(req,res){
+    Product.update({...req.body},
+      {
+        where:{
+          id:req.params.id
+        }
+      })
+      res.send('Product upgraded successfully!')
+  }
 };
 
 
