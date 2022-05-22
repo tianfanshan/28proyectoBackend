@@ -24,6 +24,20 @@ const CategoryController = {
         });
       });
   },
+  // Filtro para buscar categoría por nombre   no funciona
+  getByName(req, res) {
+    Category.findOne({
+      where:
+        { name: req.params.name },
+    })
+      .then((categories) => res.send(categories))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({
+          message: "There was a problem. :(",
+        });
+      });
+  },
 };
 
 module.exports = CategoryController;
