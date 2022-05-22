@@ -24,7 +24,7 @@ const CategoryController = {
         });
       });
   },
-  // Filtro para buscar categoría por nombre   no funciona
+  // Filtro para buscar categoría por nombre  
   getByName(req, res) {
     Category.findOne({
       where:
