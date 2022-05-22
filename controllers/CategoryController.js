@@ -8,11 +8,13 @@ const CategoryController = {
       )
       .catch(console.error);
   },
-  //El endpoint para ver todas las categorías junto a los productos que tienen
+  //Crea un endpoint que devuelva una categoría por id
 
-  getAll(req, res) {
-    Category.findAll({
-      include: [Product],
+  getById(req, res) {
+    Category.findOne({
+      where:
+        //include: [Product],
+        { id: req.params.id },
     })
       .then((categories) => res.send(categories))
       .catch((err) => {
