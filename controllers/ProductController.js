@@ -1,5 +1,5 @@
 const req = require('express/lib/request');
-const { Product, Sequelize } = require('../models/index');
+const { Product, User,Sequelize } = require('../models/index');
 const { Op } = Sequelize;
 
 const ProductController = {
@@ -56,7 +56,8 @@ const ProductController = {
       {
         where:{
           id:req.params.id
-        }
+        },
+        include:[]
       })
       res.send('Product upgraded successfully!')
   }
