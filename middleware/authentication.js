@@ -27,7 +27,7 @@ const authentication = async (req, res, next) => {
       .send({ error, message: "Ha habido un problema con el token" });
   }};
   const isAdmin = async (req, res, next) => {
-    const admins = ["admin", "superadmin"];
+    const admins = ["Admin",];
 
     if (!admins.includes(req.user.role)) {
       return res.status(403).send({
