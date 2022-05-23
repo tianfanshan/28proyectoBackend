@@ -21,7 +21,7 @@ const CategoryController = {
         });
       });
   },
-
+  // Filtro para buscar categoría por nombre
   getByName(req, res) {
     Category.findOne({
       where: {
@@ -31,20 +31,56 @@ const CategoryController = {
       },
     }).then((post) => res.send(post));
   },
+
+  // Filtro para buscar categoría por nombre first try
+  //   getByName(req, res) {
+  //     Category.findOne({
+  //       where: { name: req.params.name },
+  //     })
+  //       .then((categories) => res.send(categories))
+  //       .catch((err) => {
+  //         console.log(err);
+  //         res.status(500).send({
+  //           message: "There was a problem. :(",
+  //         });
+  //       });
+  //   },
+  //Endpotin que actualiza un category por su id
+  updateCategory(req, res) {
+    Category.update(
+      { ...req.body },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.send("Category upgraded successfully!");
+  },
+
+  //Endpotin que eliminar un category por su id
+  async deleteCategory(req, res) {
+    await Category.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.send("La category ha sido eliminada con éxito");
+  },
+  // endpoint para get todas los categories
+  getAll(req, res) {
+    Category.findAll({
+    })
+      .then((users) => res.send(users))
+      .catch((err) => {
+        console.log(err);
+        res
+          .status(500)
+          .send({
+            message: "Ha habido un problema al cargar las publicaciones",
+          });
+      });
+  },
+  
 };
-  // Filtro para buscar categoría por nombre second try 
-//   getByName(req, res) {
-//     Category.findOne({
-//       where: { name: req.params.name },
-//     })
-//       .then((categories) => res.send(categories))
-//       .catch((err) => {
-//         console.log(err);
-//         res.status(500).send({
-//           message: "There was a problem. :(",
-//         });
-//       });
-//   },
-
-
 module.exports = CategoryController;
