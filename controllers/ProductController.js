@@ -77,6 +77,11 @@ const ProductController = {
       });
   },
   // Filtro que ordene los productos de mayor a menor precio
+  orderPrices(req, res) {
+    Product.findAll({ order: [["price", "DESC"]] })
+      .then((products) => res.send(products))
+      .catch(console.error);
+  },
 };
 
 module.exports = ProductController;

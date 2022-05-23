@@ -1,4 +1,5 @@
-const { User, Order, Token } = require("../models/index");
+const { User, Order, Token, Sequelize } = require("../models/index");
+const { Op } = Sequelize;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { jwt_secret } = require("../config/config.json")["development"];
@@ -19,6 +20,8 @@ const UserController = {
       .then((users) => res.send(users))
       .catch(console.error);
   },
+
+  
   login(req, res) {
     User.findOne({
       where: {
@@ -42,6 +45,7 @@ const UserController = {
       res.send({ message: "Bienvenid@" + user.first_name, user, token });
     });
   },
+  
 };
 
 module.exports = UserController;
