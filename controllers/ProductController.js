@@ -1,5 +1,5 @@
-const req = require("express/lib/request");
-const { Product, Sequelize } = require("../models/index");
+const req = require('express/lib/request');
+const { Product, Sequelize } = require('../models/index');
 const { Op } = Sequelize;
 
 const ProductController = {
@@ -54,18 +54,19 @@ const ProductController = {
     Product.update(
       { ...req.body },
       {
-        where: {
-          id: req.params.id,
+        where:{
+          id:req.params.id
         },
-      }
-    );
-    res.send("Product upgraded successfully!");
+        include:[]
+      })
+      res.send('Product upgraded successfully!')
   },
+
   // Filtro para buscar producto por precio
   getProductByPrice(req, res) {
     Product.findOne({
       where: {
-        price: req.params.price,
+        price: req.params.price
       },
     })
       .then((products) => res.send(products))
