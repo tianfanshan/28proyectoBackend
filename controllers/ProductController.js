@@ -39,7 +39,7 @@ const ProductController = {
   },
   //Endpoint que traigo un producto que contenga las letras que introduces
   getOneByString(req, res) {
-    Product.findOne({
+    Product.findAll({
       where: {
         name: {
           [Op.like]: `%${req.params.name}%`,
@@ -77,6 +77,7 @@ const ProductController = {
         });
       });
   },
+  // Filtro que ordene los productos de mayor a menor precio
 };
 
 module.exports = ProductController;
