@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const ProductController = require('../controllers/ProductController')
+const ProductController = require('../controllers/ProductController');
+const { authentication, isAdmin } = require('../middleware/authentication');
 
-router.post('/',ProductController.create);
+router.post('/', authentication, ProductController.create);
 router.get("/id/:id", ProductController.getProductById)
 router.get('/name/:name',ProductController.getOneByName)
-router.delete('/id/:id', ProductController.delete);
+router.delete('/id/:id', authentication, isAdmin, ProductController.delete);
 router.get('/string/:name',ProductController.getOneByString);
-router.put('/update/:id',ProductController.update);
+router.put('/update/:id',authentication, ProductController.update);
 router.get("/byprice/:price", ProductController.getProductByPrice);
 router.get("/orderprices/", ProductController.orderPrices);
 

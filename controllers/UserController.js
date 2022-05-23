@@ -21,7 +21,6 @@ const UserController = {
       .catch(console.error);
   },
 
-  
   login(req, res) {
     User.findOne({
       where: {
@@ -45,7 +44,25 @@ const UserController = {
       res.send({ message: "Bienvenid@" + user.first_name, user, token });
     });
   },
-  
+
+  async logout(req, res) {
+    try {
+      await Token.destroy({
+        where: {
+          [Op.and]: [
+            { UserId: req.user.id },
+            { token: req.headers.authorization },
+          ],
+        },
+      });
+      res.send({ message: "Desconectado con éxito" });
+    } catch (error) {
+      console.log(error);
+      res
+        .status(500)
+        .send({ message: "hubo un problema al tratar de desconectarte" });
+    }
+  },
 };
 
 module.exports = UserController;
