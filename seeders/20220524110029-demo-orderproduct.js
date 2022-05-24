@@ -1,47 +1,47 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert("Orders", [
+  async up(queryInterface, Sequelize) {
+    return queryInterface.bulkInsert("Orderproducts", [
       {
-        Items_bought: 1,
-        UserId: 1,
+        OrderId: 1,
+        ProductId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        Items_bought: 1,
-        UserId: 2,
+        OrderId: 2,
+        ProductId: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        Items_bought: 2,
-        UserId: 3,
+        OrderId: 3,
+        ProductId: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        Items_bought: 1,
-        UserId: 4,
+        OrderId: 4,
+        ProductId: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        Items_bought: 1,
-        UserId: 5,
+        ProductId: 5,
+        OrderId: 5,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
     ]);
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };
