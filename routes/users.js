@@ -7,7 +7,6 @@ router.post("/",  UserController.create);
 router.get("/", UserController.getAll);
 router.post("/login", UserController.login);
 router.delete("/logout", authentication, UserController.logout);
-router.get("/getuserlogged", authentication, UserController.getUserLogged);
-
+router.get("/getAllOrderProduct",authentication,UserController.getUserInfoWithOrdersProducts)
 
 module.exports = router;

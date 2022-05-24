@@ -1,4 +1,4 @@
-const { User, Order, Token, Sequelize } = require("../models/index");
+const { User, Order,Product, Token, Sequelize } = require("../models/index");
 const { Op } = Sequelize;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -20,19 +20,17 @@ const UserController = {
       .then((users) => res.send(users))
       .catch(console.error);
   },
-
-  getUserLogged(req, res) {
-    // me traigo los usuarios
-    //Sequelize solo entiende camelCase como foreigk=Key ejemplo UserId, TrainTransactionId
-    User.findOne({
-      where: {
-        id: req.user.id,
-      },
-    })
-      .then((users) => res.send(users))
-      .catch(console.error);
+  async getUserInfoWithOrdersProducts(req,res){
+    try {
+      const users = await User.findOne({where:{id:req.user.id},
+        include:{model:Order,attributes:["items_bought"], include:{model:Product,through:{attributes:[]}}}
+      });
+      res.send(users);
+    } catch (error) {
+      console.error(error);
+      res.send(error)
+    }
   },
-
   login(req, res) {
     User.findOne({
       where: {
