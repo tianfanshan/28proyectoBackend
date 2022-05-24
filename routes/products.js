@@ -11,5 +11,7 @@ router.get('/string/:name',ProductController.getOneByString);
 router.put('/update/:id',authentication, ProductController.update);
 router.get("/byprice/:price", ProductController.getProductByPrice);
 router.get("/orderprices/", ProductController.orderPrices);
+router.post("/productcategory/", ProductController.insert);
+router.get("/getallwithcategories/", ProductController.getAllWithCategories);
 
 module.exports = router;

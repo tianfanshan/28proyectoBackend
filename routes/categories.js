@@ -9,4 +9,6 @@ router.get("/getbyname/:name", authentication, CategoryController.getByName);
 router.delete("/delete/:id", authentication, CategoryController.deleteCategory);
 router.put("/update/:id", authentication, CategoryController.updateCategory);
 router.get("/getall/",  authentication, CategoryController.getAll);
+router.get("/getallwithproduct/", CategoryController.getAllWithProducts);
+router.get("/getonewithproducts/:name", CategoryController.getOneWithProduct);
 module.exports = router;

@@ -69,18 +69,51 @@ const CategoryController = {
   },
   // endpoint para get todas los categories
   getAll(req, res) {
-    Category.findAll({
-    })
+    Category.findAll({})
       .then((users) => res.send(users))
       .catch((err) => {
         console.log(err);
-        res
-          .status(500)
-          .send({
-            message: "Ha habido un problema al cargar las publicaciones",
-          });
+        res.status(500).send({
+          message: "Ha habido un problema al cargar las publicaciones",
+        });
       });
   },
-  
+
+  async getAllWithProducts(req, res) {
+    try {
+      const categories = await Category.findAll({
+        include: [
+          {
+            model: Product,
+            attributes: ["name"],
+            through: { attributes: [] },
+          },
+        ],
+      });
+      res.send(categories);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    }
+  },
+  async getOneWithProduct(req, res) {
+    try {
+      const categories = await Category.findOne({where:{
+          name:req.params.name
+      },
+        include: [
+          {
+            model: Product,
+            attributes: ["name"],
+            through: { attributes: [] },
+          },
+        ],
+      });
+      res.send(categories);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    }
+  },
 };
 module.exports = CategoryController;

@@ -1,5 +1,5 @@
 const req = require('express/lib/request');
-const { Product, Sequelize } = require('../models/index');
+const { Product, Sequelize, Category } = require('../models/index');
 const { Op } = Sequelize;
 
 const ProductController = {
@@ -54,19 +54,20 @@ const ProductController = {
     Product.update(
       { ...req.body },
       {
-        where:{
-          id:req.params.id
+        where: {
+          id: req.params.id,
         },
-        include:[]
-      })
-      res.send('Product upgraded successfully!')
+        include: [],
+      }
+    );
+    res.send("Product upgraded successfully!");
   },
 
   // Filtro para buscar producto por precio
   getProductByPrice(req, res) {
     Product.findOne({
       where: {
-        price: req.params.price
+        price: req.params.price,
       },
     })
       .then((products) => res.send(products))
@@ -83,6 +84,32 @@ const ProductController = {
       .then((products) => res.send(products))
       .catch(console.error);
   },
-};
 
+  insert(req, res) {
+    Product.create({ ...req.body })
+      .then((product) => {
+        product.addCategory(req.body.CategoryId);
+        res.send(product);
+      })
+      .catch((err) => console.error(err));
+  },
+
+async getAllWithCategories(req, res) {
+    try {
+      const products = await Product.findAll({
+        include: [
+          {
+            model: Category,
+            attributes: ["name"],
+            through: { attributes: [] },
+          },
+        ],
+      });
+      res.send(products);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    }
+}
+};
 module.exports = ProductController;

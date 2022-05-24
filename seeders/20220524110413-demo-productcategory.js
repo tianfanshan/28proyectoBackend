@@ -2,39 +2,40 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.bulkInsert("Products", [
+    return queryInterface.bulkInsert("ProductCategories", [
       {
-        name: "GTA",
-        price: 75.0,
+        ProductId: 1,
+        CategoryId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: "Tiger woods golf 2022",
-        price: 68.0,
+        ProductId: 2,
+        CategoryId: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: "Sim city",
-        price: 55.0,
+        ProductId: 3,
+        CategoryId: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: "Legend of Zelda",
-        price: 35.0,
+        ProductId: 4,
+        CategoryId: 4,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: "Tekken",
-        price: 25.0,
+        ProductId: 5,
+        CategoryId: 5,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
     ]);
   },
+
   async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
