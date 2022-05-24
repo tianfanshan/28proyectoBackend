@@ -1,4 +1,4 @@
-const { Order ,User} = require("../models/index");
+const { Order ,User ,Product} = require("../models/index");
 
 const OrderController = {
   create(req, res) {
@@ -10,6 +10,12 @@ const OrderController = {
       )
       .catch(console.error);
   },
+  getAllOrderWithProduct(req,res){
+    Order.findAll({
+      include: [Product],
+    })
+    .then((order) => res.send(order));
+  }
 };
 
 module.exports = OrderController;
