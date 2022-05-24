@@ -20,7 +20,19 @@ const UserController = {
       .then((users) => res.send(users))
       .catch(console.error);
   },
-
+  async getAllOrderProduct(req,res){
+    try {
+      const users = await User.findAll({
+        include:[{
+          model:Order,attributes:["items_bought"],include:[Product]}
+        ],
+      });
+      res.send(users);
+    } catch (error) {
+      console.error(error);
+      res.send(error)
+    }
+  },
   login(req, res) {
     User.findOne({
       where: {
