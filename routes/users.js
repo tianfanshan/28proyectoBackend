@@ -7,5 +7,7 @@ router.post("/",  UserController.create);
 router.get("/", UserController.getAll);
 router.post("/login", UserController.login);
 router.delete("/logout", authentication, UserController.logout);
+router.get("/getuserlogged", authentication, UserController.getUserLogged);
+
 
 module.exports = router;

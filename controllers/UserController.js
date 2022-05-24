@@ -21,6 +21,18 @@ const UserController = {
       .catch(console.error);
   },
 
+  getUserLogged(req, res) {
+    // me traigo los usuarios
+    //Sequelize solo entiende camelCase como foreigk=Key ejemplo UserId, TrainTransactionId
+    User.findOne({
+      where: {
+        id: req.user.id,
+      },
+    })
+      .then((users) => res.send(users))
+      .catch(console.error);
+  },
+
   login(req, res) {
     User.findOne({
       where: {
