@@ -28,7 +28,7 @@ const UserController = {
         user,
       });
     } catch (err) {
-        console.log(err)
+      console.log(err)
       err.origin = "User";
       next(err)
     }
