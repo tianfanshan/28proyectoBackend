@@ -1,4 +1,4 @@
-const { Review, Sequelize } = require("../models/index");
+const { Review, Sequelize, User } = require("../models/index");
 // const { Product, Category, Review } = require("../models/index");
 const { Op } = Sequelize;
 
@@ -58,6 +58,23 @@ const ReviewController = {
   },
 
   //  El endpoint de traer reviews debe mostrarlas junto al usuario que hizo esa review
+  async getReviewsWithUser(req, res) {
+    try {
+      const reviews = await Review.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ["first_name", "last_name"], 
+            
+          },
+        ],
+      });
+      res.send(reviews);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    }
+  },
 };
 
 
