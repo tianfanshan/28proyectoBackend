@@ -8,5 +8,5 @@ router.get("/", UserController.getAll);
 router.post("/login", UserController.login);
 router.delete("/logout", authentication, UserController.logout);
 router.get("/getAllOrderProduct",authentication,UserController.getUserInfoWithOrdersProducts)
-router.get('/confirm/:email', UserController.confirm)
+router.get('/confirm/:emailToken', UserController.confirm)
 module.exports = router;

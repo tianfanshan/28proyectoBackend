@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model, BOOLEAN
+  Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasMany(models.Order);
-      User.hasMany(models.Review);
+      User.hasMany(models.Review)
     }
   }
   User.init({
-    first_name:{ 
+    first_name:{
       type: DataTypes.STRING,
       allowNull: false,
       validate:{
@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-    password: { 
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     role: DataTypes.STRING,
-    confirmed: DataTypes.BOOLEAN 
+    confirmed: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'User',

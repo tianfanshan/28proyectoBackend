@@ -28,7 +28,7 @@ const UserController = {
         user,
       });
     } catch (err) {
-        console.log(err)
+      console.log(err)
       err.origin = "User";
       next(err)
     }
@@ -92,7 +92,7 @@ const UserController = {
       token = jwt.sign({ id: user.id }, jwt_secret);
       console.log(token);
       Token.create({ token, UserId: user.id });
-      res.send({ message: "Bienvenid@" + user.first_name, user, token });
+      res.send({ message: "Bienvenid@ " + user.name, user, token });
     });
   },
 
