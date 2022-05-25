@@ -31,20 +31,6 @@ const CategoryController = {
       },
     }).then((post) => res.send(post));
   },
-
-  // Filtro para buscar categoría por nombre first try
-  //   getByName(req, res) {
-  //     Category.findOne({
-  //       where: { name: req.params.name },
-  //     })
-  //       .then((categories) => res.send(categories))
-  //       .catch((err) => {
-  //         console.log(err);
-  //         res.status(500).send({
-  //           message: "There was a problem. :(",
-  //         });
-  //       });
-  //   },
   //Endpotin que actualiza un category por su id
   updateCategory(req, res) {
     Category.update(

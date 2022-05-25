@@ -15,7 +15,8 @@ const UserController = {
         confirmed: false,
         role: "user",
       });
-      const url = 'http://localhost:8000/users/confirm/'+ req.body.email
+      const emailToken = jwt.sign({email:req.body.email},jwt_secret,{expiresIn:'24h'})
+      const url = 'http://localhost:8000/users/confirm/'+ emailToken
       await transporter.sendMail({
           to:req.body.email,
           subject: "confirm your register",
@@ -115,9 +116,11 @@ const UserController = {
   },
   async confirm (req,res) {
       try {
-          const user = await User.update({confirmed:true},{
+        const token = req.params.emailToken
+        const payload = jwt.verify(token,jwt_secret)
+          await User.update({confirmed:true},{
               where: {
-                  email: req.params.email
+                  email: payload.email
               }
           })
           res.status(201).send("User confirmed");
