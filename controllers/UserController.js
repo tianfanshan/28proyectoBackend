@@ -5,11 +5,15 @@ const jwt = require("jsonwebtoken");
 const { jwt_secret } = require("../config/config.json")["development"];
 
 const UserController = {
-  create(req, res) {
+  create(req, res, next) {
     const password = bcrypt.hashSync(req.body.password, 10);
     User.create({ ...req.body, password: password })
-      .then((user) => res.status(201).send({ message: "User created!", user }))
-      .catch(console.error);
+      .then((user) => 
+      res.status(201).send({ message: "User created!", user }))
+      .catch(error=>{
+        error.origin = 'User'
+        next(error)
+      });
   },
   getAll(req, res) {
     // me traigo los usuarios

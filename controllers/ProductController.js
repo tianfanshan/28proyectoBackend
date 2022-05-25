@@ -8,7 +8,10 @@ const ProductController = {
       .then((product) =>
         res.status(201).send({ message: "Product created!", product })
       )
-      .catch(console.error);
+      .catch(error=>{
+        error.origin = 'Product'
+        next(error)
+      });
   },
   // Endpoint que traiga un producto por su id
   getProductById(req, res) {
