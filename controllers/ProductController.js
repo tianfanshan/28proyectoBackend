@@ -93,8 +93,8 @@ const ProductController = {
       })
       .catch((err) => console.error(err));
   },
-
-async getAllWithCategories(req, res) {
+//El endpoint de traer productos debe mostrarse junto a la categoría o categorías que pertenece
+  async getAllWithCategories(req, res) {
     try {
       const products = await Product.findAll({
         include: [
@@ -110,6 +110,6 @@ async getAllWithCategories(req, res) {
       console.error(error);
       res.send(error);
     }
-}
+  },
 };
 module.exports = ProductController;
