@@ -14,5 +14,9 @@ router.get("/orderprices/", ProductController.orderPrices);
 router.post("/productcategory/", ProductController.insert);
 router.get("/getallwithcategories/", ProductController.getAllWithCategories);
 router.get("/getallproductswithcategoryandreview/", ProductController.getProductsWithCategoryAndReviews);
+router.get(
+  "/getallproductsbyidwithcategoryandreview/:id",
+  ProductController.getProductByIdWithCategoryAndReviews
+);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const { Review, Sequelize, User } = require("../models/index");
+const { Review, Sequelize, User, Product, Category } = require("../models/index");
 // const { Product, Category, Review } = require("../models/index");
 const { Op } = Sequelize;
 
@@ -64,10 +64,24 @@ const ReviewController = {
         include: [
           {
             model: User,
-            attributes: ["first_name", "last_name"], 
-            
+            attributes: ["first_name", "last_name"],
           },
         ],
+      });
+      res.send(reviews);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    }
+  },
+  async getReviewsWithCategoryAndProducts(req, res) {
+    try {
+      const reviews = await Review.findAll({
+        include: {
+          model: Product,
+          attributes: ["name"],
+          include: { model: Category, through: { attributes: [] } },
+        },
       });
       res.send(reviews);
     } catch (error) {

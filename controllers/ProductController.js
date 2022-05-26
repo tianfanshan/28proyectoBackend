@@ -1,5 +1,5 @@
-const req = require('express/lib/request');
-const { Product, Sequelize, Category, Review } = require('../models/index');
+const req = require("express/lib/request");
+const { Product, Sequelize, Category, Review } = require("../models/index");
 const { Op } = Sequelize;
 
 const ProductController = {
@@ -96,7 +96,8 @@ const ProductController = {
       })
       .catch((err) => console.error(err));
   },
-  //El endpoint de traer productos debe mostrarse junto a la categoría o categorías que pertenece
+  //El endpoint de traer productos debe mostrarse junto a la categoría o categorías que
+  // pertenece
   async getAllWithCategories(req, res) {
     try {
       const products = await Product.findAll({
@@ -114,23 +115,32 @@ const ProductController = {
       res.send(error);
     }
   },
-  // Actualizar el endpoint de traer todos productos y que ahora muestre los productos 
+  // Actualizar el endpoint de traer todos productos y que ahora muestre los productos
   //junto a sus categorías y sus reviews
 
   async getProductsWithCategoryAndReviews(req, res) {
     try {
       const products = await Product.findAll({
-        include: {
-          model: Category,
-          attributes: ["name"],
-          include: { model: Review, through: { attributes: [] } },
-        },
+        include: [Category, Review],
       });
       res.send(products);
     } catch (error) {
       console.error(error);
       res.send(error);
     }
+  },
+  // Actualizar el endpoint de traer producto por id y que ahora muestre los productos
+  // junto a sus categorías y sus reviews
+  getProductByIdWithCategoryAndReviews(req, res) {
+    Product.findByPk(req.params.id, { include: [Category, Review] })
+
+      .then((products) => res.send(products))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({
+          message: "There was a problem. :(",
+        });
+      });
   },
 };
 module.exports = ProductController;

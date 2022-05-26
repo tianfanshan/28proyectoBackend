@@ -10,5 +10,6 @@ router.delete("/delete/:id", ReviewController.deleteReview);
 router.put("/update/:id", ReviewController.updateReview);
 router.get("/getallreviews/", ReviewController.getAllReviews);
 router.get("/getreviewswithuser/", ReviewController.getReviewsWithUser);
+router.get("/getreviewswithcategoryandproduct/", ReviewController.getReviewsWithCategoryAndProducts);
 
 module.exports = router;
