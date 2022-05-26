@@ -45,6 +45,7 @@ In this project we have been using mysql. Here you can see the seeders we have c
 
 ### Postman
 We have also been using Postman to test our endpoints. 
+https://documenter.getpostman.com/view/21014325/Uz5ArJZV
 
 ![Postman Image](./assets/postman.png)
 ### Dependencies
