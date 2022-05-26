@@ -1,5 +1,5 @@
 const req = require('express/lib/request');
-const { Product, Sequelize, Category } = require('../models/index');
+const { Product, Sequelize, Category, Review } = require('../models/index');
 const { Op } = Sequelize;
 
 const ProductController = {
@@ -8,9 +8,9 @@ const ProductController = {
       .then((product) =>
         res.status(201).send({ message: "Product created!", product })
       )
-      .catch(error=>{
-        error.origin = 'Product'
-        next(error)
+      .catch((error) => {
+        error.origin = "Product";
+        next(error);
       });
   },
   // Endpoint que traiga un producto por su id
@@ -96,7 +96,7 @@ const ProductController = {
       })
       .catch((err) => console.error(err));
   },
-//El endpoint de traer productos debe mostrarse junto a la categoría o categorías que pertenece
+  //El endpoint de traer productos debe mostrarse junto a la categoría o categorías que pertenece
   async getAllWithCategories(req, res) {
     try {
       const products = await Product.findAll({
@@ -107,6 +107,24 @@ const ProductController = {
             through: { attributes: [] },
           },
         ],
+      });
+      res.send(products);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    }
+  },
+  // Actualizar el endpoint de traer todos productos y que ahora muestre los productos 
+  //junto a sus categorías y sus reviews
+
+  async getProductsWithCategoryAndReviews(req, res) {
+    try {
+      const products = await Product.findAll({
+        include: {
+          model: Category,
+          attributes: ["name"],
+          include: { model: Review, through: { attributes: [] } },
+        },
       });
       res.send(products);
     } catch (error) {
