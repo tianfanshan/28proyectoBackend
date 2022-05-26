@@ -57,10 +57,7 @@ We have also been using Postman to test our endpoints.
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.5",
     "sequelize": "^6.19.2"
-### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
 
 ### Examples of endpoint
 This end point will create a category

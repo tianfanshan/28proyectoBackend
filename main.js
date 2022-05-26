@@ -18,3 +18,5 @@ app.use(typeError)
 app.listen(port, () => {
   console.log("Servers running!!!" + port);
 });
+
+module.exports = app;
