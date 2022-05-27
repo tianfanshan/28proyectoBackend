@@ -84,4 +84,4 @@ Escribí algo de chino por sugerencia de mis compañeros, por falta de tiempo no
 
 ## License
 
-This project is licensed under the Alex Tebbitt & Tianfan Shan License - see the LICENSE.md file for details
+This project is licensed under the [Alex Tebbitt](https://github.com/alextebbitt) & [Tianfan Shan](https://github.com/tianfanshan) License - see the LICENSE.md file for details
