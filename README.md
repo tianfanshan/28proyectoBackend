@@ -74,7 +74,7 @@ We wanted to thank our teachers for this protector [Sofia](https://github.com/So
 
 应同学们的建议写点中文，有于时间紧迫并没有安排，只好简短说几句感谢的话，感谢老师和同学们在这个星期里的帮助，感谢[The Bridge](https://www.thebridge.tech/)给予我们如此好的学习环境！！！如有需要你可以在我的[Github](https://github.com/tianfanshan?tab=following)找到他们，他们勤奋努力，有责任心，有的甚至还是单身
 
-Escribí algo de chino por sugerencia de mis compañeros, por falta de tiempo no tuve más remedio que decir unas palabras de agradecimiento, agradecer a los profesores y alumnos por su ayuda esta semana, y agradecer a [The Bridge](https://www.thebridge.tech/) por brindarnos tanto un buen ambiente de aprendizaje! ! ! Puedes encontrarlos en mi [Github](https://github.com/tianfanshan?tab=following) si los necesitas, son trabajadores, responsables y algunos incluso son solteros.
+Escribí algo de chino por sugerencia de mis compañeros, por falta de tiempo no tuve más remedio que decir unas palabras de agradecimiento, agradecer a los profesores y alumnos por su ayuda esta semana, y agradecer a [The Bridge](https://www.thebridge.tech/) por brindarnos tanto un buen ambiente de aprendizaje! ! ! Puedes encontrarlos en mi [Github](https://github.com/tianfanshan?tab=following) y de mi compañero Alex [Github](https://github.com/alextebbitt?tab=followers) si los necesitas, son trabajadores, responsables y algunos incluso son solteros.
 
 
 ## Authors
