@@ -44,51 +44,30 @@ In this project we have been using mysql. Here you can see the seeders we have c
 ![mysql Image](./assets/database.png)
 
 ### Postman
-We have also been using Postman to test our endpoints. 
-https://documenter.getpostman.com/view/21014325/Uz5ArJZV
+We have also been using [Postman](https://documenter.getpostman.com/view/21014325/Uz5ArJZV) to test our endpoints. 
+
 
 ![Postman Image](./assets/postman.png)
 ### Dependencies
 
-"dependencies": {
-    "bcrypt": "^5.0.1",
-    "bcryptjs": "^2.4.3",
-    "express": "^4.18.1",
-    "jsonwebtoken": "^8.5.1",
-    "mysql2": "^2.3.3",
-    "nodemailer": "^6.7.5",
-    "sequelize": "^6.19.2"
+* "bcrypt": "^5.0.1"
+* "bcryptjs": "^2.4.3"
+* "express": "^4.18.1"
+* "jsonwebtoken": "^8.5.1"
+* "mysql2": "^2.3.3"
+* "nodemailer": "^6.7.5"
+* "sequelize": "^6.19.2"
 
 
 ### Examples of endpoint
 This end point will create a category
 
-const CategoryController = {
-  create(req, res) {
-    Category.create({ ...req.body })
-      .then((category) =>
-        res.status(201).send({ message: "category created", category })
-      )
-      .catch(console.error);
-  },
-
-  This end point will get the category by Id
-
-  getById(req, res) {
-    Category.findByPk(req.params.id, {})
-      .then((categories) => res.send(categories))
-      .catch((err) => {
-        console.log(err);
-        res.status(500).send({
-          message: "There was a problem. :(",
-        });
-      });
-  },
+![endpoint](./assets/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-05-27%20070247.png)
 
 
 ## Authors
 
-[Alex (@alextebbitt)](@alextebbitt) & [tianfanshan (@tianfanshan)](@tianfanshan)
+[Alex (@alextebbitt)](https://github.com/alextebbitt) & [tianfanshan (@tianfanshan)](https://github.com/tianfanshan)
 
 
 ## License
