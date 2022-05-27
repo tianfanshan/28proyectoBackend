@@ -65,6 +65,16 @@ This end point will create a category
 ![endpoint](./assets/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-05-27%20070247.png)
 
 
+## Gratitude
+
+We wanted to thank our teachers for this protector [Sofia](https://github.com/SofiaPinilla),[Ger](https://github.com/GeerDev),[Iván](https://github.com/ivanpuebla10)
+
+
+## 再次感谢
+
+应同学们的建议写点中文，有于时间紧迫并没有安排，只好简短说几句感谢的话，感谢老师和同学们在这个星期里的帮助，感谢The Bridge给予我们如此好的学习环境！！！如有需要你可以在我的[Github](https://github.com/tianfanshan?tab=following)找到他们，他们勤奋努力，有责任心，有的甚至还是单身
+
+
 ## Authors
 
 [Alex (@alextebbitt)](https://github.com/alextebbitt) & [tianfanshan (@tianfanshan)](https://github.com/tianfanshan)
