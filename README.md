@@ -65,7 +65,7 @@ This end point will create a category
 ![endpoint](./assets/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-05-27%20070247.png)
 
 
-## Gratitude
+## Grateful
 
 We wanted to thank our teachers for this protector [Sofia](https://github.com/SofiaPinilla),[Ger](https://github.com/GeerDev),[Iván](https://github.com/ivanpuebla10)
 
