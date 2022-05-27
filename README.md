@@ -4,16 +4,16 @@ We have created an online video game shop. This includes Products, Users(custome
 
 ## Description
 
-It is expected that the student develops a REST API that is capable of the following:
-● User registration using Bcrypt.
-● User login + token + middleware.
-● That is capable of creating a CRUD.
-● At least one Many to Many and one One to Many relationship.
-● Use of seeders
+### It is expected that the student develops a REST API that is capable of the following:
+* User registration using Bcrypt.
+* User login + token + middleware.
+* That is capable of creating a CRUD.
+* At least one Many to Many and one One to Many relationship.
+* Use of seeders
 
-Essential requirements of the project:
-● Use of branches with git, when the project is finished there should be two branches, the master or main and the develop.
-● Excellent README presentation.
+### Essential requirements of the project:
+* Use of branches with git, when the project is finished there should be two branches, the master or main and the develop.
+* Excellent README presentation.
 
 ### Technologies used
 * Javascript
