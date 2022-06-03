@@ -11,18 +11,18 @@ const UserController = {
       const hash = bcrypt.hashSync(req.body.password, 10);
       const user = await User.create({
         ...req.body,
-        password: hash,
+        // password: hash,
         confirmed: false,
         role: "user",
       });
-      const emailToken = jwt.sign({email:req.body.email},jwt_secret,{expiresIn:'24h'})
-      const url = 'http://localhost:8000/users/confirm/'+ emailToken
-      await transporter.sendMail({
-          to:req.body.email,
-          subject: "confirm your register",
-          html: `<h3>Welcome, you are one step away from registering correctly</h3>
-          <a href="${url}"> Click to confirm your registration</a>`,
-      })
+      // const emailToken = jwt.sign({email:req.body.email},jwt_secret,{expiresIn:'24h'})
+      // const url = 'http://localhost:8000/users/confirm/'+ emailToken
+      // await transporter.sendMail({
+      //     to:req.body.email,
+      //     subject: "confirm your register",
+      //     html: `<h3>Welcome, you are one step away from registering correctly</h3>
+      //     <a href="${url}"> Click to confirm your registration</a>`,
+      // })
       res.status(201).send({
         message: "Te hemos enviado un correo para confirmar el registro",
         user,
@@ -83,7 +83,7 @@ const UserController = {
       token = jwt.sign({ id: user.id }, jwt_secret);
       console.log(token);
       Token.create({ token, UserId: user.id });
-      res.send({ message: "Bienvenid@ " + user.first_name, user, token });
+      res.status(200).send({ message: "Bienvenid@ " + user.first_name, user, token });
     });
   },
 
